@@ -1,0 +1,24 @@
+
+1. Descreva, em sua visão, o que é SRE? Se possível, dê algum exemplo.
+SRE, ou Site Realiability Enginnering, em sua tradução é a Engenharia de Confiabilidade do Site. Entendo como a área que é responsável pelo monitoramento e sustentação de um ambiente, visando garantir alta disponibilidade e confiabilidade. A área de SRE, envolve tecnologias de monitoramento, como Zabbix, Prometheus, Grafana, entre outros. Também deve trabalhar com gestão de riscos e planos de continuidade. O pessoal que trabalha com SRE, deve estar focado no monitoramento e na melhoria dos serviços de forma a garantir sua estabilidade, evitar perda de dados e prever incidentes antes que aconteçam. 
+
+2. Quais são os requisitos para que uma aplicação seja, de fato, auto-escalável?
+
+Ela deve ser capaz de manter sua capacidade mínima e medir sua capacidade máxima, disparando assim a criação/inclusão de mais recursos para atender picos de demanda.
+Essa capacidade máxima deve ser medida conforme a finalidade da aplicação e deve ter um valor limiar, como por exemplo uma porcentagem de uso de disco em 70%, pode ser um gatilho para que a aplicação entenda que precisa incluir novos recursos para atender a demanda.
+
+3. Você conhece algum pattern sobre a melhor forma de desenvolver e operar sistemas
+distribuídos? Se sim, disserte sobre.
+
+Não conhecia formalmente o conceito de "padrão de desenvolvimento para Sistemas Distribuídos", apesar de conhecer a aplicação deles, como por exemplo a separação de réplicas de leitura e escrita, em clusters de Bancos de Dados e
+e de serviços replicados com balanceamento de carga.
+Este último padrao é um das mais comuns: quando necessitamos de escalar um serviço, precisamos criar réplicas de uma aplicação e alocá-las "atrás" de um serviço único, 
+que chamamos de balanceador de carga. Este serviço é o único ponto de recebimento de requisições da aplicação, e deverá balancear as requisições encaminhando às réplicas conforme a reposta de algum parâmetro pré-definido de "checagem de saúde" das réplicas. Alguns balanceadores de carga não são capazes de fazer esta avaliação, então distribuem 
+as requisições através de algum algoritmo de distribuição como round-robin. 
+
+4. Quais são as principais vantagens de adotar arquiteturas baseadas em containers?
+
+Escalabilidade: um container abriga uma aplicação autocontida e enxuta, que pode ser escalado com maior facilidade devido sua simplicidade e tamanho reduzido
+Portabilidade: Containers isolam as aplicações dentro deles e podem rodar em praticamente qualquer ambiente que os sustente, sendo assim, facilita por exemplo a utilização de multi-cloud,
+bem como o processo de desenvolvimento.
+Velocidade: containers podem ser criados e destruídos em segundos, diferente de máquinas virtuais que possuem um tempo maior para implantação pela quantidade de recursos que demandam.
