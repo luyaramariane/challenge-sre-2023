@@ -8,7 +8,7 @@ Para executar a aplicação, é necessário ter instalado o Docker. Para ambient
 
     ./mao_na_massa/start.sh
 
-Em ambientes Windows, os comandos devem ser executados diretamente no console Docker Desktop:
+Em ambientes Windows, os comandos devem ser executados diretamente no console Docker Desktop. Navegue até a pasta mao_na_massa e execute:
 
     docker build -t challengesre2023 --pull --force-rm .
 
